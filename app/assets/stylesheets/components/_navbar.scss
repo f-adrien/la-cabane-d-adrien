@@ -1,12 +1,56 @@
-.navbar-lewagon {
+.navbar-adrien {
+  padding: 16px 24px 16px 24px;
   justify-content: space-between;
-  background: white;
+  .navbar-toggler {
+    margin-right: 24px;
+  }
+  .navbar-collapse:first-of-type  {
+    ul {
+      margin: revert;
+    }
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-adrien .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-adrien .navbar-brand img {
+  width: 130px;
+}
+
+.navbar.header {
+  background: white;
+
+  .nav-item {
+    font-size: 18px;
+    
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    .dropdown-menu {
+
+      .dropdown-item {
+        color: $colorSecondaryAdrien !important;
+      }
+    }
+  }
+
+  .nav-link {
+    color: $colorPrimaryAdrien !important;
+    &.active {
+      color: $colorSecondaryAdrien !important;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  svg {
+    width: 28px;
+    fill: $colorSecondaryAdrien;
+  }
+}
+
+.navbar.footer {
+  background: $colorPrimaryAdrien;
 }

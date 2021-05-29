@@ -24,7 +24,11 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('turbo:load', () => {
+  console.log('Turbo is loaded')
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+// Importing Stimulus controllers
+import "controllers"
