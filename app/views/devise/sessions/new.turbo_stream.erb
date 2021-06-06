@@ -1,0 +1,4 @@
+<%= turbo_stream.replace :recaptchas do %>
+  <div class="mt-4" data-controller="reload-recaptcha" id='recaptchaV2' data-reload-recaptcha-site-key-value=<%= Rails.application.credentials[:recaptcha_V2][:public_key] %>></div>
+<% end %>
+<%= turbo_stream.update(:flashes, partial: 'shared/flashes', locals: { alert: 'Veuillez cocher le ReCaptcha' }) %>

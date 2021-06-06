@@ -14,7 +14,9 @@
 
   <body>
     <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <%= turbo_frame_tag :flashes do %>
+      <%= render 'shared/flashes' %>
+    <% end %>
     <%= yield %>
     <%= render 'shared/footer' %>
   </body>
