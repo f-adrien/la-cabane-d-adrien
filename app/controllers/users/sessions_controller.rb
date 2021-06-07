@@ -21,18 +21,14 @@ class Users::SessionsController < Devise::SessionsController
   protected
 
   def check_captcha
-    return if params.dig(:admin, :disable_recaptacha_code) == 'Doconnect2020!'
-
     v3_verify = verify_recaptcha(action: 'login', minimum_score: 1)
-    v2_verify = verify_recaptcha(site_key: Rails.application.credentials[:recaptcha_V2][:public_key], secret_key: Rails.application.credentials[:recaptcha_V2][:secret_key])
+    v2_verify = verify_recaptcha(secret_key: Rails.application.credentials[:recaptcha_V2][:secret_key])
     return if v3_verify || v2_verify
 
-    # flash.now.alert = 'Veuillez cocher le ReCaptcha'
-    respond_to do |format|
-      format.turbo_stream { render :new }
-    end
+    self.resource = resource_class.new sign_in_params
+    respond_with_navigational(resource) { render :new }
   end
-  
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
