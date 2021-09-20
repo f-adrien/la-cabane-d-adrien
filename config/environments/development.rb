@@ -1,8 +1,10 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+  config.action_mailer.default_url_options = { host: "www.lvh.me", port: 3000 }
 
+  config.hosts << "lvh.me"
+  config.hosts << "admin.lvh.me"
   config.hosts << "doconnect.eu.ngrok.io"
   # Settings specified here will take precedence over those in config/application.rb.
 

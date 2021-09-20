@@ -1,3 +1,4 @@
+<% disable_turbo_preview %>
 <div class="navbar header navbar-expand-sm navbar-light navbar-adrien">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag 'logos/logo_cabane_adrien.png' %>
@@ -6,7 +7,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -20,19 +20,19 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
-      <div class="dropdown-divider"></div>
+
       <li class="nav-item">
         <%= link_to 'La Cabane', '/', class: "nav-link"  %>
       </li>
-      <div class="dropdown-divider"></div>
+
       <li class="nav-item">
         <%= link_to 'Contact', '/', class: "nav-link"  %>
       </li>
     </ul>
   </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse navbar-cart" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item d-flex align-items-center">
+      <li class="nav-item d-flex justify-content-center align-items-center">
         <%= link_to '/', class: "nav-link" do %>
           <%= svg 'icon_cart' %>
         <% end %>

@@ -6,6 +6,7 @@
   }
   .navbar-collapse:first-of-type  {
     ul {
+      text-align: center;
       margin: revert;
     }
   }
@@ -28,9 +29,11 @@
     padding-left: 0.7rem;
     padding-right: 0.7rem;
     .dropdown-menu {
+      border-color: $colorSecondaryAdrien;
+      border-width: 1px;
 
       .dropdown-item {
-        color: $colorSecondaryAdrien !important;
+        color: $colorPrimaryAdrien !important;
       }
     }
   }
@@ -48,6 +51,15 @@
   svg {
     width: 28px;
     fill: $colorSecondaryAdrien;
+  }
+}
+
+.navbar-light .navbar-toggler {
+  border-color: $colorPrimaryAdrien;
+  &:focus {
+    border-color: $colorSecondaryAdrien;
+    outline: $colorSecondaryAdrien solid 2px;
+    outline-style: auto;
   }
 }
 
