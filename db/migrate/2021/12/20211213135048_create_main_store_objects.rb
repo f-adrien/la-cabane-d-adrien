@@ -20,7 +20,7 @@ class CreateMainStoreObjects < ActiveRecord::Migration[6.1]
     end
 
 
-    create_table :options_values do |t|
+    create_table :option_values do |t|
       t.string :name
       t.references :option, null: false, foreign_key: true
 

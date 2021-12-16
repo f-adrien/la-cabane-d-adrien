@@ -1,0 +1,44 @@
+.section-title {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: $colorGrey;
+  margin-bottom: 16px;
+}
+
+.a__box {
+  background-color: white;
+  padding: 16px 16px;
+  border-radius: 3px;
+  border: solid 1px $colorNeutral300;;
+  box-shadow: 1px 1px 10px rgba(84, 96, 103, 0.2);
+  
+    &.full-height-box {
+      height: 97vh;
+    }
+  
+    &.empty-box {
+      height: 55vh;
+    }
+    
+    .a__box-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .a__box-subtitle {
+      color: $colorGreyDark;
+      margin-top: 8px;
+    }
+  
+    .a__sub-box {
+      border: 1px solid $colorPrimaryAdrien;
+      padding: 18px;
+      border-radius: 3px;
+    }
+  
+    svg {
+      height: 15px;
+      width: 15px;
+    }
+  }

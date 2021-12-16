@@ -10,14 +10,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_25_100016) do
+ActiveRecord::Schema.define(version: 2021_12_13_135048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "admin_level", default: "seaman"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "option_values", force: :cascade do |t|
+    t.string "name"
+    t.bigint "option_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_id"], name: "index_option_values_on_option_id"
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "product_options", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "option_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_id"], name: "index_product_options_on_option_id"
+    t.index ["product_id"], name: "index_product_options_on_product_id"
+  end
+
+  create_table "product_variants", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.string "name"
+    t.string "sku", null: false
+    t.decimal "weight", precision: 8, scale: 2
+    t.decimal "height", precision: 8, scale: 2
+    t.decimal "width", precision: 8, scale: 2
+    t.decimal "depth", precision: 8, scale: 2
+    t.boolean "is_main", default: false
+    t.decimal "cost_price", precision: 10, scale: 2
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_variants_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "admin_level", default: "seaman"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -27,4 +94,23 @@ ActiveRecord::Schema.define(version: 2021_04_25_100016) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "variant_values", force: :cascade do |t|
+    t.string "name"
+    t.bigint "product_variant_id", null: false
+    t.bigint "product_option_id", null: false
+    t.bigint "option_value_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["option_value_id"], name: "index_variant_values_on_option_value_id"
+    t.index ["product_option_id"], name: "index_variant_values_on_product_option_id"
+    t.index ["product_variant_id"], name: "index_variant_values_on_product_variant_id"
+  end
+
+  add_foreign_key "option_values", "options"
+  add_foreign_key "product_options", "options"
+  add_foreign_key "product_options", "products"
+  add_foreign_key "product_variants", "products"
+  add_foreign_key "variant_values", "option_values"
+  add_foreign_key "variant_values", "product_options"
+  add_foreign_key "variant_values", "product_variants"
 end

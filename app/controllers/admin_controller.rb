@@ -1,11 +1,14 @@
 class AdminController < ApplicationController
   before_action :authenticate_admin!
   after_action :verify_authorized
-  require 'will_paginate/array'
 
-  layout -> { 'admin' if turbo_frame_request? }
+  layout 'admin'
 
-  def dashboard; end
+  def dashboard
+    authorize %i[admin general]
+    @start_date = DateTime.now.in_time_zone('Paris').beginning_of_day - 1.month
+    @end_date = DateTime.now.in_time_zone('Paris').end_of_day
+  end
 
   private
 

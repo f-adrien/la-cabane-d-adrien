@@ -3,9 +3,10 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   config.action_mailer.default_url_options = { host: "www.lvh.me", port: 3000 }
 
-  config.hosts << "lvh.me"
-  config.hosts << "admin.lvh.me"
-  config.hosts << "doconnect.eu.ngrok.io"
+  %w[admin].each do |subdomain|
+    config.hosts << "#{subdomain}.lvh.me"
+    config.hosts << "www.#{subdomain}.lvh.me"
+  end
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -78,4 +79,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  #Skip recaptcha for development environment 
+  Recaptcha.configuration.skip_verify_env.push('development')
 end

@@ -1,0 +1,20 @@
+<div class="sidebar__wrapper" data-controller='datepicker' data-datepicker-url-value=<%#= admin_search_dashboard_charts_period_path %>>
+  <h5 class='section-title'>STATISTIQUES</h5>
+  <div class="mb-4">
+    <div class='a__box'>
+      <div class="d-flex filter-form admin-inline-form">
+        <div class="mr-4">
+          <label for="set_period_start_date">DATE DE DÉBUT</label>
+          <input class="form-control datepicker" value="<%= @start_date.strftime("%d/%m/%Y") %>" data-datepicker-target="startDate" data-action="focusout->datepicker#correctDate" id="set_period_start_date">
+        </div>
+        <div class="mr-4">
+          <label for="set_period_end_date">DATE DE FIN</label>
+          <input class="form-control datepicker" value="<%= @end_date.strftime("%d/%m/%Y") %>" data-datepicker-target="endDate" data-action="focusout->datepicker#correctDate" id="set_period_end_date">
+        </div>
+        <button data-disable-with="<i class='fa fa-spinner fa-spin'></i> Actualisation" data-datepicker-target="submitButton" data-action='datepicker#submitForm' class="btn btn-primary d-flex justify-content-center">Actualiser</button>
+      </div>
+    </div>
+  </div>
+  <div data-datepicker-target="inject">
+  </div>
+</div>

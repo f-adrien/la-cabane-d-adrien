@@ -1,0 +1,14 @@
+.breadcrumbs {
+  text-transform: uppercase;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background-color: $colorNeutral200;
+  padding: 16px 64px 16px 64px;
+  @media (min-width: $breakpoint-md) {
+      margin-left: 220px;
+      width: calc(100vw - 220px);
+      margin-top: 56px;
+  }
+  @media all and (min-width: 812px) and (max-width: 812px) {}
+}

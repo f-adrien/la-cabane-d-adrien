@@ -1,0 +1,249 @@
+.primary-table {
+  width: 100%;
+  border-radius: 5px;
+  word-break: break-word;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+
+  td, th {
+    text-align: center;
+    padding: 4px 8px;
+  }
+  
+  th {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: $colorGrey;
+    margin-bottom: 16px;
+  }
+
+  td {
+    height: 70px;
+    background-color: white;
+    border-top: solid 1px $colorNeutral300;
+    border-bottom: solid 1px $colorNeutral300;
+  }
+
+
+  th:first-child, td:first-child {
+    text-align: left;
+    padding-left: 16px;
+  }
+
+  th:last-child, td:last-child {
+    text-align: right;
+    padding-right: 16px;
+  }
+
+
+  td:first-child {
+    border-left: solid 1px $colorNeutral300;
+    border-radius: 3px 0 0 3px;
+  }
+
+  td:last-child {
+    border-right: solid 1px $colorNeutral300;
+    border-radius: 0 3px 3px 0;
+  }
+}
+
+
+.table-div-wrapper {
+  border-radius: 5px;
+  padding: 6px 0;
+}
+
+.table_wrapper {
+  overflow: hidden;
+  height: calc(100vh - 96px);
+  min-height: 0;
+}
+
+.table-div {
+  max-height: calc(100vh - 280px);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-radius: 5px;
+  margin-bottom: -6px;
+}
+
+.scrollable-table {
+
+  thead {
+    background-color: $colorNeutral200;
+    position: absolute;
+    transform: translateY(-5px);
+    width: calc(100% - 348px);
+    padding: 5px 0;
+    z-index: 1;
+    color: white;
+
+    a {
+      color: $colorGrey;
+    }
+  }
+
+  tbody {
+    margin-top: 38px;
+    display: block;
+    width: 100%;
+
+    tr {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  thead, tbody tr {
+    display:table;
+    table-layout:fixed;
+  }
+}
+
+.col-options {
+  width: 9%;
+
+  .icon-dots-horizontal {
+    width: 20px;
+    height: 20px
+  }
+}
+
+.col-email {
+  width: 30%;
+}
+
+.campaign-index-table {
+  .col-type {
+    width: 7%;
+  }
+
+  .col-number-recipients {
+    width: 12%;
+  }
+
+  .col-id {
+    width: 8%;
+  }
+}
+
+.client-feedbacks-table {
+  .col-recipient {
+    width: 26%;
+  }
+}
+
+.apple_pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+  cursor: default;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  a, span{
+    padding: 0.2em 0.3em;
+  }
+
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+
+  .disabled {
+    color: #aaaaaa;
+  }
+
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background-color: $colorPrimaryAdrien;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    border-radius: 1em;
+    color: white;
+  }
+}
+
+.skeleton-text {
+  color: transparent !important;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 0.8rem;
+  z-index: 1;
+  border-radius: 2px;
+  animation: colorchange 3s infinite; /* animation-name followed by duration in seconds*/
+        /* you could also use milliseconds (ms) or something like 2.5s */
+    -webkit-animation: colorchange 3s infinite; /* Chrome and Safari */
+}
+
+@keyframes colorchange
+{
+  0%   {background: $colorGreyLight;}
+  50% {background: #e6e6ed;}
+  100%   {background: $colorGreyLight;}
+}
+
+@-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+{
+  0%   {background: $colorGreyLight;}
+  50% {background: #e6e6ed;}
+  100%   {background: $colorGreyLight;}
+}
+
+.sortable-table {
+
+  .icon-cheveron-header {
+    bottom: 8px;
+    position: relative;
+    margin-left: 8px;
+    svg {
+      cursor: pointer;
+      position: absolute;
+      height: 18px;
+      width: 18px;
+      left: 0;
+      top: 3px;
+    }
+    .icon-cheveron-down {
+      margin-top: 6px;
+    }
+  }
+
+  .icon-cheveron-up, .icon-cheveron-down {
+    filter: invert(71%) sepia(2%) saturate(1854%) hue-rotate(202deg) brightness(85%) contrast(83%)
+  }
+
+  // .current a {
+  //   color: white;
+  //   font-weight: bold;
+  // }
+
+  .asc {
+    .icon-cheveron-up {
+      filter: invert(100%) sepia(77%) saturate(652%) hue-rotate(180deg) brightness(82%) contrast(93%)
+    }
+
+    .icon-cheveron-down  {
+      filter: invert(13%) sepia(7%) saturate(1507%) hue-rotate(201deg) brightness(93%) contrast(89%)
+    }
+  }
+
+  .desc {
+    .icon-cheveron-up {
+      filter: invert(13%) sepia(7%) saturate(1507%) hue-rotate(201deg) brightness(93%) contrast(89%)
+    }
+
+    .icon-cheveron-down  {
+      filter: invert(100%) sepia(77%) saturate(652%) hue-rotate(180deg) brightness(82%) contrast(93%)
+    }
+  }
+}

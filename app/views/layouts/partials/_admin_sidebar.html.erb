@@ -1,0 +1,21 @@
+<div class="sidebar">
+  <div class='admin-sidebar-logo'>
+    <%= image_tag "https://res.cloudinary.com/francois-adrien/image/upload/v1639668869/Logo_CA_Couleurs_CMJN_copie_2_fj8x50.jpg" %>
+  </div>
+  <nav class='admin-nav w-100'>
+    <div class="sidebar__links">
+      <%= link_to root_path, class: '' do %>
+        <div class="sidebar__link main_link align-items-center">
+          <%= svg 'icon-dashboard' %>
+          <p class="ml-2">Dashboard</p>
+        </div>
+      <% end %>
+      <%= link_to products_path, class: '' do %>
+        <div class="sidebar__link main_link align-items-center">
+          <%= svg 'icon-dashboard' %>
+          <p class="ml-2">Dashboard</p>
+        </div>
+      <% end %>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>La Cabane d'Adrien Admin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= yield(:metas) %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'shared', media: 'all', 'data-turbo-track': 'reload', defer: true %>
+    <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbo-track': 'reload', defer: true %>
+    <%= yield(:assets) %>
+    <%= favicon_link_tag "https://res.cloudinary.com/francois-adrien/image/upload/v1639668869/Logo_CA_Couleurs_CMJN_copie_2_fj8x50.jpg" %>
+    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <% begin %>
+    <%= javascript_pack_tag "#{params[:controller]}/#{params[:action]}", defer: true, id: "#{params[:controller]}-#{params[:action]}".parameterize %>
+    <% rescue; end %>
+  </head>
+  <body>
+    <%= render 'layouts/partials/admin_navbar' %>
+    <div class="breadcrumbs"></div>
+    <%= render 'layouts/partials/admin_sidebar' %>
+    <%= turbo_frame_tag :flashes do %>
+      <%= render 'shared/flashes' %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

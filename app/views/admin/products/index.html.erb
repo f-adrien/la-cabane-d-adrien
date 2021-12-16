@@ -1,0 +1,47 @@
+<div class="sidebar__wrapper table_wrapper" data-controller="load-index" data-load-index-url-value=<%= load_products_path %>>
+  <div class='a__box'>
+    <div class='d-flex justify-content-between align-items-center'>
+      <input class='col-md-5 form-control string optional' type="text" value='' placeholder='Rechercher un admin...' id='search-index-input' data-load-index-target="searchIndex" data-action="load-index#load">
+      <div class='d-flex'>
+        <%= link_to new_product_path, class: "btn btn-primary d-flex" do %>
+          <%= svg 'icon-add' %>
+          <span>Nouveau produit</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div data-load-index-target="inject">
+    <div class="table-div-wrapper">
+      <div class="table-div">
+        <table class="primary-table scrollable-table sortable-table">
+          <thead>
+            <tr>
+              <th>NOM</th>
+              <th class="col-email">EMAIL</th>
+              <th>NIVEAU DE PERMISSION</th>
+              <th class="col-options">OPTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% 15.times do %>
+              <tr>
+                <td>
+                  <div class="skeleton-text"></div>
+                </td>
+                <td class="col-email">
+                  <div class="skeleton-text"></div>
+                </td>
+                <td>
+                  <div class="skeleton-text"></div>
+                </td>
+                <td class="col-options">
+                  <div class="skeleton-text"></div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+.log_in_or_signup_form {
+  position: relative;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  
+  .log_in_or_signup_logo_container {
+    text-align: center;
+    top: 4vh;
+    img {
+      width: 60%;
+    }
+  }
+
+  .log_in_title {
+    text-align: center;
+    margin-top: 5vh;
+    font-size: 1.7rem;
+  }
+
+  .log_in_subtitle {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    color: $colorGrey;
+    margin-bottom: 8vh;
+  }
+
+  .login-left-container, .login-right-container {
+    min-height: 100vh;
+  }
+
+  .g-recaptcha {
+    iframe {
+      height: 78px;
+    }
+  }
+}
+
+.login-right-container {
+  margin: 0;
+  background: url('https://res.cloudinary.com/francois-adrien/image/upload/v1639653787/lacabanedadrien_12_l69jkd.jpg') no-repeat;
+  background-size: auto 100%;
+  background-position: right top;
+}
+
+.visible-password-input-group {
+  position: relative;
+
+  .icon-view-visible {
+    cursor: pointer;
+    fill: $colorGrey;
+    position: absolute;
+    width: 20px;
+    bottom: 8px;
+    right: 15px;
+  }
+}

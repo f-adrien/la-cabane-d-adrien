@@ -1,0 +1,15 @@
+// Graphical variables
+@import "shared/config/breakpoints_variables";
+@import "shared/config/colors";
+@import "shared/config/fonts";
+@import "shared/config/bootstrap_variables";
+@import "shared/config/utilities";
+
+// External libraries
+@import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// Your CSS partials
+@import "shared/components/index";
+@import "shared/devise/devise";

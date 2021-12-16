@@ -1,0 +1,14 @@
+<div class="navbar navbar-expand-sm navbar-light admin-navbar">
+  Bonjour <%= current_admin.first_name %> <%= current_admin.last_name %>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown u-cursor-pointer">
+        <%= image_tag "https://res.cloudinary.com/francois-adrien/image/upload/v1639655188/default-avatar_copie_b5zbm2.png", class: "avatar-square dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
