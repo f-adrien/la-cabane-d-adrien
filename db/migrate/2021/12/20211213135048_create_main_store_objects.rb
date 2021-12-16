@@ -6,6 +6,27 @@ class CreateMainStoreObjects < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
+    create_table :options do |t|
+      t.string :name
+
+      t.timestamps
+    end
+
+    create_table :product_options do |t|
+      t.references :product, null: false, foreign_key: true
+      t.references :option, null: false, foreign_key: true
+
+      t.timestamps
+    end
+
+
+    create_table :options_values do |t|
+      t.string :name
+      t.references :option, null: false, foreign_key: true
+
+      t.timestamps
+    end
+
     create_table :product_variants do |t|
       t.references :product, null: false, foreign_key: true
       t.string :name
@@ -17,7 +38,15 @@ class CreateMainStoreObjects < ActiveRecord::Migration[6.1]
       t.boolean :is_main, default: false
       t.decimal :cost_price, precision: 10, scale: 2
       t.integer :position
-      t.references :tax_category, null: false, foreign_key: true
+
+      t.timestamps
+    end
+
+    create_table :variant_values do |t|
+      t.string :name
+      t.references :product_variant, null: false, foreign_key: true
+      t.references :product_option, null: false, foreign_key: true
+      t.references :option_value, null: false, foreign_key: true
 
       t.timestamps
     end
