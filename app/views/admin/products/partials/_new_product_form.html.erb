@@ -1,0 +1,10 @@
+<%= simple_form_for @product, url: url, method: method do |f| %>
+  <div class="a__box">
+    <div class='col-md-6'>
+      <%= f.input :name,
+        label: 'Nom'
+        %>
+    </div>
+  </div>
+  <%= f.button :button, "Sauvegarder", class: "btn btn-primary mt-3" %>
+<% end %>

@@ -4,16 +4,16 @@
   </div>
   <nav class='admin-nav w-100'>
     <div class="sidebar__links">
-      <%= link_to root_path, class: '' do %>
-        <div class="sidebar__link main_link align-items-center">
+      <%= link_to root_path do %>
+        <div class="sidebar__link main_link align-items-center <%= 'active-tab' if dashboard_tab_active %>">
           <%= svg 'icon-dashboard' %>
           <p class="ml-2">Dashboard</p>
         </div>
       <% end %>
       <%= link_to products_path, class: '' do %>
-        <div class="sidebar__link main_link align-items-center">
-          <%= svg 'icon-dashboard' %>
-          <p class="ml-2">Dashboard</p>
+        <div class="sidebar__link main_link align-items-center <%= 'active-tab' if products_tab_active %>">
+          <%= svg 'icon-box-open' %>
+          <p class="ml-2">Produits</p>
         </div>
       <% end %>
     </div>

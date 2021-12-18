@@ -8,6 +8,18 @@ class AdminPolicy
     @record = record
   end
 
+  def index?
+    true
+  end
+
+  def load_index?
+    true
+  end
+
+  def new?
+    true
+  end
+
   def create?
     user.admin_level != 'seaman'
   end

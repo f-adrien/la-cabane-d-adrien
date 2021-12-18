@@ -47,23 +47,9 @@
     svg {
       margin-left: 7px;
       stroke: $colorGrey;
-      &.icon-paper-plane, &.icon-tracker, &.icon-link, &.icon-api, &.icon-settings, &.icon-credits, &.icon-statistics, &.icon-forbidden {
+      fill: $colorGrey;
+      path {
         fill: $colorGrey;
-      }
-      &.icon-paper-plane, &.icon-settings {
-        stroke-width: 8px;
-      }
-      &.icon-factory, &.icon-user-group, &.icon-key, &.icon-trending-up, &.icon-lock, &.icon-launch, &.squared-cross {
-        fill: transparent;
-      }
-      &.icon-sponsorship {
-        fill: #FF7B8C;
-        stroke: #FF7B8C;
-      }
-      &.sleeping-moon {
-        path {
-          fill: grey;
-        }
       }
     }
 
@@ -84,12 +70,8 @@
 
       svg { 
         stroke: $colorPrimaryAdrien;
-        &.icon-paper-plane, &.icon-tracker, &.icon-link, &.icon-api, &.icon-credits, &.icon-statistics, &.icon-forbidden {
+        path {
           fill: $colorPrimaryAdrien;
-        }
-        &.icon-sponsorship {
-          fill: #D4145A;
-          stroke: #D4145A;
         }
       }
     }

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
     #admin products routes
     resources :products , controller: 'admin/products'
-    get 'load-products', to: 'products#load_index', as: 'load-products'
+    get 'load-products', to: 'admin/products#load_index', as: 'load-products'
   end
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
