@@ -10,4 +10,9 @@ module SidebarHelper
     params[:action] == 'index' &&
       params[:controller] == 'admin/products'
   end
+
+  def options_tab_active
+    params[:action] == 'index' &&
+      params[:controller] == 'admin/options'
+  end
 end

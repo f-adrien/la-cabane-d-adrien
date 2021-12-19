@@ -1,0 +1,38 @@
+<%= turbo_frame_tag :load_options_index do %>
+  <div class="table-div-wrapper">
+    <%= turbo_frame_tag :load_options_table, target: '_top' do %>
+      <div class="table-div">
+        <table class="primary-table scrollable-table sortable-table">
+          <thead>
+            <tr>
+              <th>NOM</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @options.each do |option| %>
+              <tr>
+                <td><%= option.name %></td>
+                <td class="col-options">
+                  <div class="dropup d-flex justify-content-end">
+                    <span class="a__dots dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= svg 'icon_dots_horizontal' %></span>
+                    <div class="dropdown-menu dropdown-menu-left">
+                      <%= link_to edit_option_path(id: option), class: "dropdown-item d-flex", method: :get do %>
+                        <%= svg 'icon_edit' %><span>Éditer</span>
+                      <% end %>
+                      <%= link_to option_path(id: option), method: :delete,
+                        data: { confirm: "Êtes-vous sûr de vouloir supprimer cet admin ?", verify: option.name, verify_text: "Veuillez saisir '#{option.name}' pour confirmer", word_to_type: option.name },
+                        class: "dropdown-item" do %>
+                        <%= svg 'icon_trash' %><span>Supprimer</span>
+                      <% end %>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+<% end %>

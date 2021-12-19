@@ -24,6 +24,10 @@ class AdminPolicy
     user.admin_level != 'seaman'
   end
 
+  def edit?
+    true
+  end
+
   def update?
     user.admin_level != 'seaman'
   end

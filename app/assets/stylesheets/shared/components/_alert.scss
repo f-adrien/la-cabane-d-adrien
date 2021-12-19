@@ -1,6 +1,22 @@
+.alert-zone { 
+  z-index: 1000;
+  position: relative;
+}
+
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 1000;
+  left: 50%;
+  top: 9vh;
+  transform: translate(-50%, -50%);
+  z-index: 1100;
+  margin-top: 10px;
+  // text-align: center;
+}
+
+.flash-close-button {
+  height: 100%;
+}
+
+.information-message {
+  color: #f8a100;
 }

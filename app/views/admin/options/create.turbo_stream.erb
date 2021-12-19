@@ -1,0 +1,6 @@
+<%= turbo_stream.replace :load_options_index do %>
+  <%= render 'admin/options/partials/load_index' %>
+<% end %>
+<%= turbo_stream.replace :option_modal do %>
+  <%= turbo_frame_tag :option_modal, target: '_top' %>
+<% end %>

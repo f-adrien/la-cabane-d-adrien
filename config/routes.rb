@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     #admin products routes
     resources :products , controller: 'admin/products'
     get 'load-products', to: 'admin/products#load_index', as: 'load-products'
+
+    #admin options routes
+    resources :options , controller: 'admin/options'
+    get 'load-options', to: 'admin/options#load_index', as: 'load-options'
   end
 
   devise_for :users, controllers: { sessions: 'users/sessions' }

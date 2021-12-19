@@ -18,3 +18,27 @@
   visibility: visible;
   padding: 0.5rem 0;
 }
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  svg {
+    height: 19px;
+    width: 19px;
+    margin-right: 4px;
+    .primary {
+      fill: $colorPrimaryAdrien;
+    }
+    .secondary {
+      fill: $colorPrimaryAdrien;
+    }
+  }
+}
+
+.dropup, .dropdown {
+  cursor: pointer;
+}
