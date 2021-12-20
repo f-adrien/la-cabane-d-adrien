@@ -1,0 +1,3 @@
+<%= turbo_stream.update :tax_modal do %>
+  <%= render 'admin/taxes/partials/tax_form', url: taxes_path, method: :post %>
+<% end %>

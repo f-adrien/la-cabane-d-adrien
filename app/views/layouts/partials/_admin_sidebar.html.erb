@@ -22,6 +22,12 @@
           <p class="ml-2">Attributs</p>
         </div>
       <% end %>
+      <%= link_to taxes_path, class: '' do %>
+        <div class="sidebar__link main_link align-items-center <%= 'active-tab' if taxes_tab_active %>">
+          <%= svg 'icon_percentage' %>
+          <p class="ml-2">Taxes</p>
+        </div>
+      <% end %>
     </div>
   </nav>
 </div>

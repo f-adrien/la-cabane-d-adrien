@@ -15,4 +15,9 @@ module SidebarHelper
     params[:action] == 'index' &&
       params[:controller] == 'admin/options'
   end
+
+  def taxes_tab_active
+    params[:action] == 'index' &&
+      params[:controller] == 'admin/taxes'
+  end
 end

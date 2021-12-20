@@ -1,27 +1,29 @@
-<%= turbo_frame_tag :load_options_index do %>
+<%= turbo_frame_tag :load_taxes_index do %>
   <div class="table-div-wrapper">
-    <%= turbo_frame_tag :load_options_table, target: '_top' do %>
+    <%= turbo_frame_tag :load_taxes_table, target: '_top' do %>
       <div class="table-div">
         <table class="primary-table scrollable-table sortable-table">
           <thead>
             <tr>
               <th>NOM</th>
+              <th>TAUX</th>
               <th>OPTIONS</th>
             </tr>
           </thead>
           <tbody>
-            <% @options.each do |option| %>
+            <% @taxes.each do |tax| %>
               <tr>
-                <td><%= option.name %></td>
+                <td><%= tax.name %></td>
+                <td><%= tax.rate %> %</td>
                 <td class="col-options">
                   <div class="dropup d-flex justify-content-end">
                     <span class="a__dots dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= svg 'icon_dots_horizontal' %></span>
                     <div class="dropdown-menu dropdown-menu-left">
-                      <%= link_to edit_option_path(id: option), class: "dropdown-item d-flex", method: :get do %>
+                      <%= link_to edit_tax_path(id: tax), class: "dropdown-item d-flex", method: :get do %>
                         <%= svg 'icon_edit' %><span>Éditer</span>
                       <% end %>
-                      <%= link_to option_path(id: option), method: :delete,
-                        data: { confirm: "Êtes-vous sûr de vouloir supprimer cet attribut ?", verify: option.name, verify_text: "Veuillez saisir '#{option.name}' pour confirmer", word_to_type: option.name },
+                      <%= link_to tax_path(id: tax), method: :delete,
+                        data: { confirm: "Êtes-vous sûr de vouloir supprimer cet attribut ?", verify: tax.name, verify_text: "Veuillez saisir '#{tax.name}' pour confirmer", word_to_type: tax.name },
                         class: "dropdown-item" do %>
                         <%= svg 'icon_trash' %><span>Supprimer</span>
                       <% end %>

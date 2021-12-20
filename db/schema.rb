@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_13_135048) do
+ActiveRecord::Schema.define(version: 2021_12_20_095211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -57,6 +58,15 @@ ActiveRecord::Schema.define(version: 2021_12_13_135048) do
     t.index ["product_id"], name: "index_product_options_on_product_id"
   end
 
+  create_table "product_taxes", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "tax_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_taxes_on_product_id"
+    t.index ["tax_id"], name: "index_product_taxes_on_tax_id"
+  end
+
   create_table "product_variants", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.string "name"
@@ -75,6 +85,13 @@ ActiveRecord::Schema.define(version: 2021_12_13_135048) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "taxes", force: :cascade do |t|
+    t.string "name"
+    t.decimal "rate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -109,6 +126,8 @@ ActiveRecord::Schema.define(version: 2021_12_13_135048) do
   add_foreign_key "option_values", "options"
   add_foreign_key "product_options", "options"
   add_foreign_key "product_options", "products"
+  add_foreign_key "product_taxes", "products"
+  add_foreign_key "product_taxes", "taxes"
   add_foreign_key "product_variants", "products"
   add_foreign_key "variant_values", "option_values"
   add_foreign_key "variant_values", "product_options"

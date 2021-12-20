@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     #admin options routes
     resources :options , controller: 'admin/options'
     get 'load-options', to: 'admin/options#load_index', as: 'load-options'
+
+    #admin taxes routes
+    resources :taxes , controller: 'admin/taxes'
+    get 'load-taxes', to: 'admin/taxes#load_index', as: 'load-taxes'
   end
 
   devise_for :users, controllers: { sessions: 'users/sessions' }

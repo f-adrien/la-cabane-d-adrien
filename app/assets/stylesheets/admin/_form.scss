@@ -101,8 +101,6 @@
 }
 
 .col-options {
-  width: 9%;
-
   .icon-dots-horizontal {
     width: 20px;
     height: 20px
@@ -245,5 +243,21 @@
     .icon-cheveron-down  {
       filter: invert(100%) sepia(77%) saturate(652%) hue-rotate(180deg) brightness(82%) contrast(93%)
     }
+  }
+}
+
+.percentage-input-group {
+  position: relative;
+  input {
+    padding-left: 30px;
+  }
+
+  svg {
+    cursor: pointer;
+    fill: $colorGrey;
+    position: absolute;
+    width: 12px;
+    bottom: 11px;
+    left: 10px;
   }
 }

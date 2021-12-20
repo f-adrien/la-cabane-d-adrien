@@ -1,0 +1,6 @@
+<%= turbo_stream.replace :load_taxes_index do %>
+  <%= render 'admin/taxes/partials/load_index' %>
+<% end %>
+<%= turbo_stream.replace :tax_modal do %>
+  <%= turbo_frame_tag :tax_modal, target: '_top' %>
+<% end %>

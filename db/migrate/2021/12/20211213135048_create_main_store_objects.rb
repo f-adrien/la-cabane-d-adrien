@@ -50,5 +50,19 @@ class CreateMainStoreObjects < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+
+    create_table :taxes do |t|
+      t.string :name
+      t.decimal :rate
+
+      t.timestamps
+    end
+
+    create_table :product_taxes do |t|
+      t.references :product, null: false, foreign_key: true
+      t.references :tax, null: false, foreign_key: true
+
+      t.timestamps
+    end
   end
 end

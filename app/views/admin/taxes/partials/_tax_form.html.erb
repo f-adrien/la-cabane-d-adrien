@@ -2,19 +2,28 @@
   <div class="modal-dialog large modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class='modal-header'>
-        <h5 class='section-title mb-0'><%= params[:action] == 'edit' ? 'Éditer' : 'Créer' %> une option</h5>
+        <h5 class='section-title mb-0'><%= params[:action] == 'edit' ? 'Éditer' : 'Créer' %> une taxe</h5>
         <button type="button" class="close d-flex align-items-start" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for @option, url: url, method: method do |f| %>
+        <%= simple_form_for @tax, url: url, method: method do |f| %>
           <div class='d-flex align-items-end mb-2'>
             <%= f.input :name,
                   label: 'Nom',
                   required: false,
-                  wrapper_html: { class: 'flex-grow-1 mr-5 mb-0' }
+                  wrapper_html: { class: 'flex-grow-1 mr-2 mb-0' }
                 %>
+            <div class='percentage-input-group flex-grow-1 mr-2 mb-0'>
+              <%= f.input :rate,
+                    label: 'Taux',
+                    required: false,
+                    input_html: { min: 0, step: 0.1, value: @tax.rate || 0.0 },
+                    wrapper_html: { class: 'mb-0' }
+                  %>
+              <%= svg "icon_percentage" %>
+            </div>
             <%= f.button :button, params[:action] == 'edit' ? 'Éditer' : 'Créer', class: "flex-grow-2 btn btn-primary" %>
           </div>
         <% end %>
