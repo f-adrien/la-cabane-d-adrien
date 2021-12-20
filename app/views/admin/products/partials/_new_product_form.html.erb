@@ -1,10 +1,25 @@
-<%= simple_form_for @product, url: url, method: method do |f| %>
+<%= simple_form_for @product, url: url, method: method do |product_form| %>
   <div class="a__box">
     <div class='col-md-6'>
-      <%= f.input :name,
+      <%= product_form.input :name,
         label: 'Nom'
         %>
+      <label>Options</label>
+      <div data-controller="nested-form">
+        <template data-nested-form-target="template">
+          <%= product_form.simple_fields_for :product_options, ProductOption.new, child_index: 'NEW_RECORD' do |product_options_form| %>
+            <%= render 'admin/products/partials/option_fields', form: product_options_form %>
+          <% end %>
+        </template>
+        <%= product_form.simple_fields_for :product_options do |product_options_form| %>
+          <%= render 'admin/products/partials/option_fields', form: product_options_form %>
+        <% end %>
+
+        <div class="mb-3" data-nested-form-target="links">
+          <%= link_to "Ajouter une option", "#", class: "btn btn-secondary", data: { action: "click->nested-form#add_association" } %>
+        </div>
+      </div>
     </div>
   </div>
-  <%= f.button :button, "Sauvegarder", class: "btn btn-primary mt-3" %>
+  <%= product_form.button :button, "Sauvegarder", class: "btn btn-primary mt-3" %>
 <% end %>

@@ -1,0 +1,10 @@
+<%= content_tag :div, class: "nested-fields d-flex align-items-center", data: { new_record: form.object.new_record? } do %>
+  <%= form.input :option_id,
+  collection: Option.all,
+  include_blank: false,
+  label: false,
+  wrapper_html: { class: 'w-75 mr-3' } %>
+  <small class='mb-2'><%= link_to "Supprimer", "#", data: { action: "click->nested-form#remove_association" } %></small>
+
+  <%= form.hidden_field :_destroy %>
+<% end %>

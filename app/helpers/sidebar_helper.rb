@@ -6,6 +6,11 @@ module SidebarHelper
       params[:controller] == 'admin'
   end
 
+  def store_tab_active
+    (%w[index new edit show].include? params[:action]) &&
+      (['admin/products', 'admin/options', 'admin/taxes'].include? params[:controller])
+  end
+
   def products_tab_active
     params[:action] == 'index' &&
       params[:controller] == 'admin/products'
