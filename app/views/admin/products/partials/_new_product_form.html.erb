@@ -4,17 +4,23 @@
       <%= product_form.input :name,
         label: 'Nom'
         %>
+      <%= product_form.association :taxes,
+        label: 'Taxes',
+        label_method: lambda { |t| "#{t.name} - #{t.rate} %" },
+        multiple: false,
+        input_html: { multiple: false },
+        include_blank: false
+        %>
       <label>Options</label>
       <div data-controller="nested-form">
         <template data-nested-form-target="template">
           <%= product_form.simple_fields_for :product_options, ProductOption.new, child_index: 'NEW_RECORD' do |product_options_form| %>
-            <%= render 'admin/products/partials/option_fields', form: product_options_form %>
+            <%= render 'admin/products/partials/product_option_fields', form: product_options_form %>
           <% end %>
         </template>
         <%= product_form.simple_fields_for :product_options do |product_options_form| %>
-          <%= render 'admin/products/partials/option_fields', form: product_options_form %>
+          <%= render 'admin/products/partials/product_option_fields', form: product_options_form %>
         <% end %>
-
         <div class="mb-3" data-nested-form-target="links">
           <%= link_to "Ajouter une option", "#", class: "btn btn-secondary", data: { action: "click->nested-form#add_association" } %>
         </div>

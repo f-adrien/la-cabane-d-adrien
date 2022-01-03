@@ -1,6 +1,6 @@
-<%= turbo_frame_tag :load_options_index do %>
+<%= turbo_frame_tag :load_products_index do %>
   <div class="table-div-wrapper">
-    <%= turbo_frame_tag :load_options_table, target: '_top' do %>
+    <%= turbo_frame_tag :load_products_table, target: '_top' do %>
       <div class="table-div">
         <table class="primary-table scrollable-table sortable-table">
           <thead>
@@ -10,18 +10,18 @@
             </tr>
           </thead>
           <tbody>
-            <% @options.each do |option| %>
+            <% @products.each do |product| %>
               <tr>
-                <td><%= option.name %></td>
+                <td><%= link_to product.name, product_path(product) %></td>
                 <td class="col-options">
                   <div class="dropup d-flex justify-content-end">
                     <span class="a__dots dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= svg 'icon_dots_horizontal' %></span>
                     <div class="dropdown-menu dropdown-menu-left">
-                      <%= link_to edit_option_path(id: option), class: "dropdown-item d-flex", method: :get do %>
+                      <%= link_to edit_product_path(id: product), class: "dropdown-item d-flex", method: :get do %>
                         <%= svg 'icon_edit' %><span>Éditer</span>
                       <% end %>
-                      <%= link_to option_path(id: option), method: :delete,
-                        data: { confirm: "Êtes-vous sûr de vouloir supprimer cet attribut ?", verify: option.name, verify_text: "Veuillez saisir '#{option.name}' pour confirmer", word_to_type: option.name },
+                      <%= link_to product_path(id: product), method: :delete,
+                        data: { confirm: "Êtes-vous sûr de vouloir supprimer cet attribut ?", verify: product.name, verify_text: "Veuillez saisir '#{product.name}' pour confirmer", word_to_type: product.name },
                         class: "dropdown-item" do %>
                         <%= svg 'icon_trash' %><span>Supprimer</span>
                       <% end %>

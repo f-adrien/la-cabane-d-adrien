@@ -21,12 +21,6 @@
             <p class="ml-2">Produits</p>
           </div>
         <% end %>
-        <%= link_to options_path, class: '' do %>
-          <div class="sidebar__link sublink align-items-center <%= 'active-tab' if options_tab_active %>">
-            <%= svg 'icon_list' %>
-            <p class="ml-2">Attributs</p>
-          </div>
-        <% end %>
         <%= link_to taxes_path, class: '' do %>
           <div class="sidebar__link sublink align-items-center <%= 'active-tab' if taxes_tab_active %>">
             <%= svg 'icon_percentage' %>

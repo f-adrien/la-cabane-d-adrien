@@ -1,0 +1,15 @@
+<div class="sidebar__wrapper">
+  <h5 class='mb-3'><%= @product.name.capitalize %></h5>
+  <div class='a__box mb-4'>
+    <p class='section-title'>Taxes</p>
+    <% @product.taxes.each do |t| %>
+      <li><%= "#{t.name} : #{t.rate} %" %></li>
+    <% end %>
+  </div>
+  <div class='a__box'>
+    <p class='section-title'>Attributs</p>
+    <% @product.product_options.each do |o| %>
+      <li><%= "#{o.name}" %></li>
+    <% end %>
+  </div>
+</div>

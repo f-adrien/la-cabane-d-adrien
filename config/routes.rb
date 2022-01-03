@@ -9,10 +9,6 @@ Rails.application.routes.draw do
     resources :products , controller: 'admin/products'
     get 'load-products', to: 'admin/products#load_index', as: 'load-products'
 
-    #admin options routes
-    resources :options , controller: 'admin/options'
-    get 'load-options', to: 'admin/options#load_index', as: 'load-options'
-
     #admin taxes routes
     resources :taxes , controller: 'admin/taxes'
     get 'load-taxes', to: 'admin/taxes#load_index', as: 'load-taxes'

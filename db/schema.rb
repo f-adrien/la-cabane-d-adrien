@@ -35,26 +35,11 @@ ActiveRecord::Schema.define(version: 2021_12_20_095211) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "option_values", force: :cascade do |t|
-    t.string "name"
-    t.bigint "option_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["option_id"], name: "index_option_values_on_option_id"
-  end
-
-  create_table "options", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "product_options", force: :cascade do |t|
+    t.string "name", null: false
     t.bigint "product_id", null: false
-    t.bigint "option_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["option_id"], name: "index_product_options_on_option_id"
     t.index ["product_id"], name: "index_product_options_on_product_id"
   end
 
@@ -115,21 +100,16 @@ ActiveRecord::Schema.define(version: 2021_12_20_095211) do
     t.string "name"
     t.bigint "product_variant_id", null: false
     t.bigint "product_option_id", null: false
-    t.bigint "option_value_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["option_value_id"], name: "index_variant_values_on_option_value_id"
     t.index ["product_option_id"], name: "index_variant_values_on_product_option_id"
     t.index ["product_variant_id"], name: "index_variant_values_on_product_variant_id"
   end
 
-  add_foreign_key "option_values", "options"
-  add_foreign_key "product_options", "options"
   add_foreign_key "product_options", "products"
   add_foreign_key "product_taxes", "products"
   add_foreign_key "product_taxes", "taxes"
   add_foreign_key "product_variants", "products"
-  add_foreign_key "variant_values", "option_values"
   add_foreign_key "variant_values", "product_options"
   add_foreign_key "variant_values", "product_variants"
 end
