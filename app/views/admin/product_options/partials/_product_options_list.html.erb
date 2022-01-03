@@ -1,0 +1,13 @@
+<% @product.product_options.each do |option| %>
+  <%= turbo_frame_tag dom_id(option) do %>
+    <li><%= "#{option.name}" %>
+      <%= link_to edit_product_product_option_path(id: option, product_id: @product), method: :get, class: 'very-small-icons ml-4' do %>
+        <%= svg 'icon_edit' %>
+      <% end %>
+      <%= link_to product_product_option_path(id: option, product_id: @product), class: 'very-small-icons ml-2', method: :delete,
+          data: { confirm: "Êtes-vous sûr de vouloir supprimer cet attribut ?", verify: option.name, verify_text: "Veuillez saisir '#{option.name}' pour confirmer", word_to_type: option.name } do %>
+        <%= svg 'icon_trash' %>
+      <% end %>
+    </li>
+  <% end %>
+<% end %>

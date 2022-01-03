@@ -1,0 +1,30 @@
+.medium-icons {
+  svg {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+.small-icons {
+  svg {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+.very-small-icons {
+  svg {
+    height: 18px !important;
+    width: 18px !important;
+  }
+}
+
+.medium-icons, .small-icons, .very-small-icons {
+  fill: $colorPrimaryAdrien;
+  .primary {
+    fill: $colorPrimaryAdrien;
+  }
+  .secondary {
+    fill: $colorPrimaryAdrien;
+  }
+}

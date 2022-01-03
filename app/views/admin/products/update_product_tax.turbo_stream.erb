@@ -1,0 +1,6 @@
+<%= turbo_stream.update dom_id(@product_tax) do %>
+  <%= "#{@product_tax.tax.name} : #{@product_tax.tax.rate} %" %>
+  <%= link_to edit_product_tax_path(id: @product_tax), method: :get, class: 'very-small-icons ml-4' do %>
+    <%= svg 'icon_edit' %>
+  <% end %>
+<% end %>

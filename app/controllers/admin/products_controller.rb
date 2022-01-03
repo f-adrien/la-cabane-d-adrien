@@ -30,6 +30,19 @@ class Admin::ProductsController < AdminController
     end
   end
 
+  def edit_product_tax
+    @product_tax = ProductTax.find(params[:id])
+  end
+
+  def update_product_tax
+    @product_tax = ProductTax.find(params[:id])
+    if @product_tax.update(set_product_tax_params)
+      flash.now.notice = "La taxe pour ce produit a été correctement mise à jour"
+    else
+      render_turbo_flashes(:alert, "#{@product_tax.errors.messages.keys.first} #{@product_tax.errors.messages.values.first.first}")
+    end
+  end
+
   private
 
   def authorize_admin
@@ -38,5 +51,9 @@ class Admin::ProductsController < AdminController
 
   def set_product_params
     params.require(:product).permit(:name, :tax_ids, product_options_attributes: %i[name product_id _destroy])
+  end
+
+  def set_product_tax_params
+    params.require(:product_tax).permit(:product_id, :tax_id)
   end
 end

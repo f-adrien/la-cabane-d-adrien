@@ -1,15 +1,32 @@
 <div class="sidebar__wrapper">
   <h5 class='mb-3'><%= @product.name.capitalize %></h5>
-  <div class='a__box mb-4'>
-    <p class='section-title'>Taxes</p>
-    <% @product.taxes.each do |t| %>
-      <li><%= "#{t.name} : #{t.rate} %" %></li>
+  <div class='a__box mb-3'>
+    <p class='section-title mb-3'>Taxes</p>
+    <% @product.product_taxes.includes(:tax).each do |pt| %>
+      <%= turbo_frame_tag dom_id(pt) do %>
+        <%= "#{pt.tax.name} : #{pt.tax.rate} %" %>
+        <%= link_to edit_product_tax_path(id: pt), method: :get, class: 'very-small-icons ml-4' do %>
+          <%= svg 'icon_edit' %>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
-  <div class='a__box'>
-    <p class='section-title'>Attributs</p>
-    <% @product.product_options.each do |o| %>
-      <li><%= "#{o.name}" %></li>
+  <div class='a__box mb-3'>
+    <p class='section-title mb-3'>Attributs</p>
+    <%= turbo_frame_tag :product_options_list do %>
+      <%= render 'admin/product_options/partials/product_options_list' %>
     <% end %>
+    <%= turbo_frame_tag :new_product_option %>
+    <%= link_to 'Ajouter un attribut', new_product_product_option_path(@product), class: 'btn mt-3', method: :get %>
+  </div>
+  <div class='a__box'>
+    <p class='section-title mb-3'>Variants</p>
+    <% @product.product_variants.each do |variant| %>
+      <%= variant.name %>
+      <%= link_to edit_product_tax_path(pt), method: :patch, class: 'very-small-icons ml-4' do %>
+        <%= svg 'icon_edit' %>
+      <% end %>
+    <% end %>
+    <%= link_to 'Ajouter un Variant', new_product_product_option_path(@product), class: 'btn mt-3', method: :get %>
   </div>
 </div>

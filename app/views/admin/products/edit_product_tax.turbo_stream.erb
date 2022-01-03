@@ -1,0 +1,3 @@
+<%= turbo_stream.update dom_id(@product_tax) do %>
+  <%= render 'admin/products/partials/product_tax_form', url: update_product_tax_path(id: @product_tax.id), method: :patch %>
+<% end %>

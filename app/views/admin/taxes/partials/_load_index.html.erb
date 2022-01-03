@@ -23,7 +23,7 @@
                         <%= svg 'icon_edit' %><span>Éditer</span>
                       <% end %>
                       <%= link_to tax_path(id: tax), method: :delete,
-                        data: { confirm: "Êtes-vous sûr de vouloir supprimer cet attribut ?", verify: tax.name, verify_text: "Veuillez saisir '#{tax.name}' pour confirmer", word_to_type: tax.name },
+                        data: { confirm: "Êtes-vous sûr de vouloir supprimer cette taxe ?", verify: tax.name, verify_text: "Veuillez saisir '#{tax.name}' pour confirmer", word_to_type: tax.name },
                         class: "dropdown-item" do %>
                         <%= svg 'icon_trash' %><span>Supprimer</span>
                       <% end %>

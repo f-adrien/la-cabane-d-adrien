@@ -1,0 +1,6 @@
+<%= turbo_stream.update :product_options_list do %>
+  <%= render 'admin/product_options/partials/product_options_list' %>
+<% end %>
+<%= turbo_stream.replace :new_product_option do %>
+  <%= turbo_frame_tag :new_product_option %>
+<% end %>
