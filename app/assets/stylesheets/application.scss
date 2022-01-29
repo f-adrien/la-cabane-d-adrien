@@ -1,4 +1,6 @@
 // Graphical variables
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-datepicker/dist/css/bootstrap-datepicker';
 @import "shared/config/breakpoints_variables";
 @import "shared/config/colors";
 @import "shared/config/fonts";
@@ -7,8 +9,6 @@
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
 
 // Your CSS partials
 @import "shared/components/index";

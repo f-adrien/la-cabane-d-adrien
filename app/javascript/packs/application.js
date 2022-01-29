@@ -1,18 +1,29 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
+require('@rails/ujs').start();
+require('@rails/activestorage').start();
+require('data-confirm-modal');
 
-import Rails from "@rails/ujs"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-import '@hotwired/turbo-rails'
-
-Rails.start()
-ActiveStorage.start()
-
-// External imports
-import "bootstrap";
+import '@hotwired/turbo-rails';
+import'../src/jquery';
+import 'jquery-ui-dist/jquery-ui.js';
+import Popper from "popper.js"
+import 'bootstrap';
+import 'bootstrap-datepicker';
+import 'chartkick/chart.js';
 
 // Importing Stimulus controllers
-import "controllers"
+import '../controllers'
+
+dataConfirmModal.setDefaults({
+  commit: 'Oui',
+  cancel: 'Non',
+  onConfirm: function() { console.log('modal-confirmed') }
+});
+
+// reload page when using history
+window.addEventListener('popstate', function (e) {
+  const state = e.state;
+  console.log(window.location.pathname)
+  if (state !== null) {
+    location.reload();
+  }
+});

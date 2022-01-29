@@ -1,28 +1,34 @@
 {
-  "name": "la-cabane-d-adrien",
+  "name": "w-digital-tools",
   "private": true,
   "dependencies": {
-    "@hotwired/turbo-rails": "^7.0.0-beta.5",
+    "@hotwired/stimulus": "^3.0.1",
+    "@hotwired/turbo-rails": "^7.1.1",
     "@nathanvda/cocoon": "^1.2.14",
-    "@rails/activestorage": "^6.0.3-7",
-    "@rails/ujs": "^6.0.3-7",
-    "@rails/webpacker": "5.4.0",
-    "autoprefixer": "^10.2.5",
-    "bootstrap": "^4.5.0",
+    "@rails/activestorage": "^7.0.1",
+    "@rails/ujs": "^7.0.1",
+    "autoprefixer": "^10.4.2",
+    "bootstrap": "4.6.0",
     "bootstrap-datepicker": "^1.9.0",
-    "chart.js": "^3.3.0",
-    "chartkick": "^4.0.4",
+    "chartkick": "^4.1.1",
     "chosen-js": "^1.8.7",
     "data-confirm-modal": "^1.6.2",
+    "esbuild": "^0.14.11",
+    "esbuild-rails": "^1.0.3",
     "jquery": "^3.6.0",
-    "jquery-ui-dist": "^1.12.1",
-    "node-gyp": "^3.8.0",
-    "popper.js": "^1.16.1",
-    "stimulus": "^2.0.0",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "jquery-ui-dist": "^1.13.0",
+    "popper.js": "1.16.1",
+    "sass": "^1.49.0",
+    "stimulus-autocomplete": "^3.0.1",
+    "tinymce": "^5.10.2"
   },
-  "devDependencies": {
-    "webpack-dev-server": "^3.11.2"
+  "devDependencies": {},
+  "version": "0.1.0",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "build:css": "sass ./app/assets/stylesheets/admin.scss:./app/assets/builds/admin.css ./app/assets/stylesheets/website.scss:./app/assets/builds/website.css  --watch --no-source-map --load-path=node_modules",
+    "build": "node esbuild.config.js"
   }
 }

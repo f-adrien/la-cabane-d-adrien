@@ -1,21 +1,17 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.4'
+ruby '3.0.3'
 
 gem "aws-sdk-s3", require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
+gem 'rails', '~> 7.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 gem 'pg_search'
 # Use Puma as the app server
 gem 'puma', '= 5.5.0'
-# Use SCSS for stylesheets
-gem 'sassc-rails'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker'
 # Turbo makes navigating your web application faster. Read more: https://github.com/hotwired/turbo-rails
 gem 'turbo-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -35,9 +31,14 @@ gem 'bootsnap', require: false
 gem 'devise'
 
 gem 'autoprefixer-rails'
+gem 'bootstrap'
+gem 'bootstrap-datepicker-rails'
+gem 'cssbundling-rails'
 gem 'font-awesome-sass'
+gem 'jsbundling-rails'
 gem 'pundit'
 gem 'simple_form'
+gem 'stimulus-rails'
 
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
