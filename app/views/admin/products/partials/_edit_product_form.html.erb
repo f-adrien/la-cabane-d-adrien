@@ -1,0 +1,8 @@
+<%= simple_form_for @product, url: url, method: method do |f| %>
+  <div class='d-flex mt-2 mb-2'>
+    <%= f.input :name,
+    label: false,
+    wrapper_html: { class: 'mr-4 mb-0' } %>
+    <%= f.button :button, 'Éditer', class: "btn btn-primary" %>
+  </div>
+<% end %>

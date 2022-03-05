@@ -11,4 +11,19 @@
       margin-top: 56px;
   }
   @media all and (min-width: 812px) and (max-width: 812px) {}
+  h5 {
+    font-size: 0.8rem;
+    color: $colorGrey;
+    margin-bottom: 16px;
+    margin-bottom: 0;
+  }
+  a {
+    color: $colorGrey;
+  }
+  svg {
+    height: 15px;
+    width: 15px;
+    fill: $colorGrey;
+    stroke: $colorGrey;
+  }
 }

@@ -1,5 +1,11 @@
+<%= add_breadcrumbs [{title: 'Produits', url: products_path}, {title: @product.name}] %>
 <div class="sidebar__wrapper">
-  <h5 class='mb-3'><%= @product.name.capitalize %></h5>
+  <div class='a__box mb-3'>
+    <p class='section-title mb-3'>Nom</p>
+    <%= turbo_frame_tag :edit_product do %>
+      <%= render 'admin/products/partials/edit_product_section' %>
+    <% end %>
+  </div>
   <div class='a__box mb-3'>
     <p class='section-title mb-3'>Taxes</p>
     <% @product.product_taxes.includes(:tax).each do |pt| %>
@@ -27,6 +33,7 @@
         <%= svg 'icon_edit' %>
       <% end %>
     <% end %>
-    <%= link_to 'Ajouter un Variant', new_product_product_option_path(@product), class: 'btn mt-3', method: :get %>
+    <%= link_to 'Ajouter un Variant', new_product_product_variant_path(@product), class: 'btn mt-3', method: :get %>
   </div>
 </div>
+<%= turbo_frame_tag :product_modal, target: '_top' %>

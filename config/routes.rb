@@ -8,13 +8,11 @@ Rails.application.routes.draw do
     #admin products routes
     resources :products, controller: 'admin/products' do
       resources :product_options, except: %i[index show], controller: 'admin/product_options'
+      resources :product_variants, except: %i[index show], controller: 'admin/product_variants'
     end
     get 'load-products', to: 'admin/products#load_index', as: 'load-products'
     get 'edit-product-tax', to: 'admin/products#edit_product_tax', as: 'edit-product-tax'
     patch 'update-product-tax', to: 'admin/products#update_product_tax', as: 'update-product-tax'
-    # post 'create-product-option', to: 'admin/products#create_product_option', as: 'create-product-option'
-    # patch 'edit-product-option', to: 'admin/products#edit_product_option', as: 'edit-product-option'
-    # delete 'destroy-product-option', to: 'admin/products#destroy_product_option', as: 'destroy-product-option'
 
     #admin taxes routes
     resources :taxes, controller: 'admin/taxes'

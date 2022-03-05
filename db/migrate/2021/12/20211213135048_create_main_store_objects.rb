@@ -24,6 +24,7 @@ class CreateMainStoreObjects < ActiveRecord::Migration[6.1]
       t.boolean :is_main, default: false
       t.decimal :cost_price, precision: 10, scale: 2
       t.integer :position
+      t.boolean :published, default: false
 
       t.timestamps
     end

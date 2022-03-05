@@ -1,0 +1,37 @@
+<div data-controller="modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog large modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class='modal-header'>
+          <h5 class='section-title mb-0'><%= params[:action] == 'edit' ? 'Éditer' : 'Créer' %> un variant</h5>
+          <button type="button" class="close d-flex align-items-start" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <%= simple_form_for @product_variant, url: url, method: method do |f| %>
+          <div class='mb-2'>
+            <%= f.input :name,
+              label: 'Nom'
+            %>
+            <%= f.input :sku,
+              label: 'SKU'
+            %>
+            <%= f.input :weight,
+              label: 'Poids (en grammes)'
+            %>
+            <%= f.input :height,
+              label: 'Hauteur (en centimètres)'
+            %>
+            <%= f.input :width,
+              label: 'Largeur (en centimètres)'
+            %>
+            <%= f.input :depth,
+              label: 'Profondeur (en centimètres)'
+            %>
+          </div>
+          <%= f.button :button, params[:action] == 'edit' ? 'Éditer' : 'Créer', class: "flex-grow-2 btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

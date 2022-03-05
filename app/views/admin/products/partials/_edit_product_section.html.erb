@@ -1,0 +1,4 @@
+<%= @product.name %>
+<%= link_to edit_product_path(id: @product), method: :get, class: 'very-small-icons ml-4' do %>
+  <%= svg 'icon_edit' %>
+<% end %>

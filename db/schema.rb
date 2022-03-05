@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2022_01_29_164130) do
     t.boolean "is_main", default: false
     t.decimal "cost_price", precision: 10, scale: 2
     t.integer "position"
+    t.boolean "published", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_product_variants_on_product_id"

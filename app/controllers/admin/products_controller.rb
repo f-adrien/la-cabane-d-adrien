@@ -1,5 +1,6 @@
 class Admin::ProductsController < AdminController
   before_action :authorize_admin
+  before_action :define_product, only: %i[show edit update]
 
   def index; end
 
@@ -12,9 +13,7 @@ class Admin::ProductsController < AdminController
     render partial: 'admin/products/partials/load_index'
   end
 
-  def show
-    @product = Product.find(params[:id])
-  end
+  def show; end
 
   def new
     @product = Product.new
@@ -24,7 +23,17 @@ class Admin::ProductsController < AdminController
   def create
     @product = Product.new(set_product_params)
     if @product.save
-      redirect_to products_path
+      redirect_to products_path, notice: 'Le produit à été correctement créé'
+    else
+      render_turbo_flashes(:alert, "#{@product.errors.messages.keys.first} #{@product.errors.messages.values.first.first}")
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @product.update(set_product_params)
+      flash.now.notice = "Le produit à été correctement édité"
     else
       render_turbo_flashes(:alert, "#{@product.errors.messages.keys.first} #{@product.errors.messages.values.first.first}")
     end
@@ -47,6 +56,10 @@ class Admin::ProductsController < AdminController
 
   def authorize_admin
     authorize %i[admin Product]
+  end
+
+  def define_product
+    @product = Product.find(params[:id])
   end
 
   def set_product_params

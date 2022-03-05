@@ -7,10 +7,10 @@
     <%= csp_meta_tag %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    <%= stylesheet_link_tag params[:subdomain] == 'admin' ? 'admin' : 'website', media: 'all', 'data-turbo-track': 'reload' %>
     <%= favicon_link_tag "https://res.cloudinary.com/francois-adrien/image/upload/v1639668869/Logo_CA_Couleurs_CMJN_copie_2_fj8x50.jpg" %>
 
-    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true %>
+    <%= javascript_include_tag 'packs/application', 'data-turbo-track': 'reload', defer: true %>
   </head>
 
   <body>

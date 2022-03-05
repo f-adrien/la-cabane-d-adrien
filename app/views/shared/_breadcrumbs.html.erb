@@ -1,0 +1,10 @@
+<% links&.each_with_index do |link, i| %>
+  <h5 class='d-flex align-items-center <%= 'ml-1' unless i == 0 %>'>
+    <% if i == links.size - 1 %>
+      <%= link[:title] %>
+    <% else %>
+      <%= link_to link[:title], link[:url] %>
+      <%= svg 'icon-caret-right', class: 'ml-1' %>
+    <% end %>
+  </h5>
+<% end %>

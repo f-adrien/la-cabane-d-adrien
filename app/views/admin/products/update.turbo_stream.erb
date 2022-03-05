@@ -1,0 +1,6 @@
+<%= turbo_stream.update :edit_product do %>
+  <%= render 'admin/products/partials/edit_product_section' %>
+<% end %>
+<%= turbo_stream.update :breadcrumbs do %>
+  <%= render 'shared/breadcrumbs', links: [{title: 'Produits', url: products_path}, {title: @product.name}] %>
+<% end %>

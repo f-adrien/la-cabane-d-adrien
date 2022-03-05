@@ -13,12 +13,14 @@
     <%= javascript_include_tag "packs/application", "data-turbo-track": "reload", defer: true %>
     <% begin %>
       <%= javascript_include_tag "packs/#{params[:controller]}/#{params[:action]}", defer: true, id: "#{params[:controller]}-#{params[:action]}".parameterize %>
-    <% rescue; end %>
-  </head>
+      <% rescue; end %>
+    </head>
   </head>
   <body>
     <%= render 'layouts/partials/admin_navbar' %>
-    <div class="breadcrumbs"></div>
+    <%= turbo_frame_tag :breadcrumbs, class: 'breadcrumbs', target: :_top do %>
+      <%= yield(:breadcrumbs) %>
+    <% end %>
     <%= render 'layouts/partials/admin_sidebar' %>
     <%= turbo_frame_tag :flashes do %>
       <%= render 'shared/flashes' %>
