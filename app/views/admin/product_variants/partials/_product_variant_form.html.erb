@@ -18,13 +18,16 @@
               label: 'Nom',
               required: true
             %>
-            <%= f.label 'Prix' %>
+            <%= f.label 'Prix',
+            required: true %>
             <%= f.input :price,
             label: false,
+            required: true,
             wrapper_html: { class: 'price-input-group' } %>
             <%= simple_fields_for :variant_values do |p| %>
               <% @product.product_options.each do |po| %>
-                <%= p.input po.name %>
+                <%= p.input po.id,
+                label: po.name %>
               <% end %>
             <% end %>
             <%= f.input :weight,

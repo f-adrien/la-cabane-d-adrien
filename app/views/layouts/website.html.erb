@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'website', media: 'all', 'data-turbo-track': 'reload' %>
     <%= favicon_link_tag "https://res.cloudinary.com/francois-adrien/image/upload/v1639668869/Logo_CA_Couleurs_CMJN_copie_2_fj8x50.jpg" %>
-
-    <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload', defer: true %>
-  </head>
-
-  <body>
-    <%= render 'shared/navbar' %>
-    <%= turbo_frame_tag :flashes do %>
-      <%= render 'shared/flashes' %>
-    <% end %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
-  </body>
-</html>
+    <%= javascript_include_tag "packs/application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "packs/website", "data-turbo-track": "reload", defer: true %>
+    <% begin %>
+      <%= javascript_include_tag "packs/#{params[:controller]}/#{params[:action]}", defer: true, id: "#{params[:controller]}-#{params[:action]}".parameterize %>
+    <% rescue; end %>
+    </head>
+    <body>
+      <%= render 'shared/navbar' %>
+      <%= turbo_frame_tag :flashes do %>
+        <%= render 'shared/flashes' %>
+      <% end %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    </body>
+  </html>
