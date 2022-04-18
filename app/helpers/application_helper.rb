@@ -1,10 +1,4 @@
 module ApplicationHelper
-  def add_breadcrumbs(links)
-    content_for(:breadcrumbs) do
-      render 'shared/breadcrumbs', links: links
-    end
-  end
-
   def disable_turbo_preview
     content_for(:metas) do
       sanitize("<meta name='turbo-cache-control' content='no-preview'>", tags: %w[meta], attributes: %w[name content])

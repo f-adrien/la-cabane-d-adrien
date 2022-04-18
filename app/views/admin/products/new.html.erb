@@ -1,5 +1,7 @@
-<%= add_breadcrumbs [{title: 'Produits', url: products_path}, {title: 'Nouveau'}] %>
 <div class="sidebar__wrapper">
+  <div class='page-title-section'>
+    <h1 class='page-title'>Nouveau Produit</h1>
+  </div>
   <%= turbo_frame_tag :create_product, target: '_top' do %>
     <%= render 'admin/products/partials/new_product_form', url: products_path, method: :post %>
   <% end %>

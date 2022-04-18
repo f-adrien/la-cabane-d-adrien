@@ -118,12 +118,12 @@
 
 .sidebar__wrapper{
   background-color: $colorNeutral200;
-  min-height: calc(100vh - 96px);
+  min-height: calc(100vh - 56px);
   padding: 0px 64px 42px 64px;
   @media (min-width: $breakpoint-md) {
       margin-left: 220px;
       width: calc(100vw - 220px);
-      margin-top: 0px;
+      margin-top: 56px;
   }
   @media all and (min-width: 812px) and (max-width: 812px) {}
 }

@@ -16,13 +16,14 @@ class CreateMainStoreObjects < ActiveRecord::Migration[6.1]
     create_table :product_variants do |t|
       t.references :product, null: false, foreign_key: true
       t.string :name
+      t.bigint :price, default: 0
       t.string :sku, null: false
-      t.decimal :weight, precision: 8, scale: 2
-      t.decimal :height, precision: 8, scale: 2
-      t.decimal :width, precision: 8, scale: 2
-      t.decimal :depth, precision: 8, scale: 2
+      t.decimal :weight, precision: 8, scale: 2, default: 0
+      t.decimal :height, precision: 8, scale: 2, default: 0
+      t.decimal :width, precision: 8, scale: 2, default: 0
+      t.decimal :depth, precision: 8, scale: 2, default: 0
       t.boolean :is_main, default: false
-      t.decimal :cost_price, precision: 10, scale: 2
+      t.decimal :cost_price, precision: 10, scale: 2, default: 0
       t.integer :position
       t.boolean :published, default: false
 

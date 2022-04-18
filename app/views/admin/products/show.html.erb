@@ -1,5 +1,9 @@
-<%= add_breadcrumbs [{title: 'Produits', url: products_path}, {title: @product.name}] %>
 <div class="sidebar__wrapper">
+  <div class='page-title-section'>
+    <h1 class='page-title'>
+      <%= turbo_frame_tag :product_title do %><%= @product.name %><% end %>
+    </h1>
+  </div>
   <div class='a__box mb-3'>
     <p class='section-title mb-3'>Nom</p>
     <%= turbo_frame_tag :edit_product do %>

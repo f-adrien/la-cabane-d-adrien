@@ -83,13 +83,14 @@ ActiveRecord::Schema.define(version: 2022_01_29_164130) do
   create_table "product_variants", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.string "name"
+    t.bigint "price", default: 0
     t.string "sku", null: false
-    t.decimal "weight", precision: 8, scale: 2
-    t.decimal "height", precision: 8, scale: 2
-    t.decimal "width", precision: 8, scale: 2
-    t.decimal "depth", precision: 8, scale: 2
+    t.decimal "weight", precision: 8, scale: 2, default: "0.0"
+    t.decimal "height", precision: 8, scale: 2, default: "0.0"
+    t.decimal "width", precision: 8, scale: 2, default: "0.0"
+    t.decimal "depth", precision: 8, scale: 2, default: "0.0"
     t.boolean "is_main", default: false
-    t.decimal "cost_price", precision: 10, scale: 2
+    t.decimal "cost_price", precision: 10, scale: 2, default: "0.0"
     t.integer "position"
     t.boolean "published", default: false
     t.datetime "created_at", precision: 6, null: false

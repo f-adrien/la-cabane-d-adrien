@@ -18,9 +18,6 @@
   </head>
   <body>
     <%= render 'layouts/partials/admin_navbar' %>
-    <%= turbo_frame_tag :breadcrumbs, class: 'breadcrumbs', target: :_top do %>
-      <%= yield(:breadcrumbs) %>
-    <% end %>
     <%= render 'layouts/partials/admin_sidebar' %>
     <%= turbo_frame_tag :flashes do %>
       <%= render 'shared/flashes' %>

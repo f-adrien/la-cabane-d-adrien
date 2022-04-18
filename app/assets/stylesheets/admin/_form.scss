@@ -261,3 +261,20 @@
     left: 10px;
   }
 }
+
+.price-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  input {
+    padding-left: 36px;
+  }
+
+  &::before {
+    content: "€";
+    position: absolute;
+    color: grey;
+    padding-left: 10px;
+    font-size: 20px;
+  }
+}

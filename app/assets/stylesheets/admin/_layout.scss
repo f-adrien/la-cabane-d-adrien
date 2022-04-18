@@ -4,6 +4,19 @@
   color: $colorGrey;
   margin-bottom: 16px;
 }
+.page-title-section {
+  display: flex;
+  align-items: center;
+  padding: 24px 0;
+  height: 70px;
+}
+
+.page-title {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  color: $colorGrey;
+}
 
 .a__box {
   background-color: white;

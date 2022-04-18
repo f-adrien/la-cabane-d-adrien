@@ -1,32 +1,50 @@
 <div data-controller="modal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog large modal-dialog-centered" role="document">
     <div class="modal-content">
-        <div class='modal-header'>
-          <h5 class='section-title mb-0'><%= params[:action] == 'edit' ? 'Éditer' : 'Créer' %> un variant</h5>
-          <button type="button" class="close d-flex align-items-start" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
+      <div class='modal-header d-flex align-items-center'>
+        <h5 class='section-title mb-0'><%= params[:action] == 'edit' ? 'Éditer' : 'Créer' %> un variant</h5>
+        <button type="button" class="close d-flex align-items-start" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
         <%= simple_form_for @product_variant, url: url, method: method do |f| %>
           <div class='mb-2'>
+            <%= f.input :is_main,
+            label: 'Référent',
+            as: :boolean,
+            checked: false %>
             <%= f.input :name,
-              label: 'Nom'
+              label: 'Nom',
+              required: true
             %>
-            <%= f.input :sku,
-              label: 'SKU'
-            %>
+            <%= f.label 'Prix' %>
+            <%= f.input :price,
+            label: false,
+            wrapper_html: { class: 'price-input-group' } %>
+            <%= simple_fields_for :variant_values do |p| %>
+              <% @product.product_options.each do |po| %>
+                <%= p.input po.name %>
+              <% end %>
+            <% end %>
             <%= f.input :weight,
-              label: 'Poids (en grammes)'
+              label: 'Poids (en grammes)',
+              required: true
             %>
             <%= f.input :height,
-              label: 'Hauteur (en centimètres)'
+              label: 'Hauteur (en centimètres)',
+              required: true
             %>
             <%= f.input :width,
-              label: 'Largeur (en centimètres)'
+              label: 'Largeur (en centimètres)',
+              required: true
             %>
             <%= f.input :depth,
-              label: 'Profondeur (en centimètres)'
+              label: 'Profondeur (en centimètres)',
+              required: true
+            %>
+            <%= f.input :sku,
+              label: 'SKU (Optionnel)'
             %>
           </div>
           <%= f.button :button, params[:action] == 'edit' ? 'Éditer' : 'Créer', class: "flex-grow-2 btn btn-primary" %>

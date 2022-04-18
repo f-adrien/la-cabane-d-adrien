@@ -17,7 +17,7 @@
                   <div class="dropup d-flex justify-content-end">
                     <span class="a__dots dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= svg 'icon_dots_horizontal' %></span>
                     <div class="dropdown-menu dropdown-menu-left">
-                      <%= link_to edit_product_path(id: product), class: "dropdown-item d-flex", method: :get do %>
+                      <%= link_to product_path(product), class: "dropdown-item d-flex" do %>
                         <%= svg 'icon_edit' %><span>Éditer</span>
                       <% end %>
                       <%= link_to product_path(id: product), method: :delete,
