@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2022_01_29_164130) do
   create_table "product_variants", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.string "name"
-    t.bigint "price", default: 0
+    t.decimal "price", precision: 10, scale: 2, default: "0.0"
     t.string "sku", null: false
     t.decimal "weight", precision: 8, scale: 2, default: "0.0"
     t.decimal "height", precision: 8, scale: 2, default: "0.0"

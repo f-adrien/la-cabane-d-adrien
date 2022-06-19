@@ -1,6 +1,7 @@
 <% @product.product_options.each do |option| %>
   <%= turbo_frame_tag dom_id(option) do %>
-    <li><%= "#{option.name}" %>
+    <li>
+      <%= "#{option.name}" %>
       <%= link_to edit_product_product_option_path(id: option, product_id: @product), method: :get, class: 'very-small-icons ml-4' do %>
         <%= svg 'icon_edit' %>
       <% end %>

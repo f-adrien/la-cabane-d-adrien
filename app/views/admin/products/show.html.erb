@@ -31,11 +31,8 @@
   </div>
   <div class='a__box'>
     <p class='section-title mb-3'>Variants</p>
-    <% @product.product_variants.each do |variant| %>
-      <%= variant.name %>
-      <%= link_to edit_product_tax_path(pt), method: :patch, class: 'very-small-icons ml-4' do %>
-        <%= svg 'icon_edit' %>
-      <% end %>
+    <%= turbo_frame_tag :product_variants, target: :_top do %>
+      <%= render 'admin/product_variants/partials/load_index' %>
     <% end %>
     <%= link_to 'Ajouter un Variant', new_product_product_variant_path(@product), class: 'btn mt-3', method: :get %>
   </div>

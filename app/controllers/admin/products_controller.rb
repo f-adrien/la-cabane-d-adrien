@@ -23,7 +23,7 @@ class Admin::ProductsController < AdminController
   def create
     @product = Product.new(set_product_params)
     if @product.save
-      redirect_to products_path, notice: 'Le produit à été correctement créé'
+      redirect_to product_path(@product), notice: 'Le produit à été correctement créé'
     else
       render_turbo_flashes(:alert, "#{@product.errors.messages.keys.first} #{@product.errors.messages.values.first.first}")
     end

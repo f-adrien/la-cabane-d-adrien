@@ -22,12 +22,14 @@
             required: true %>
             <%= f.input :price,
             label: false,
+            value: number_with_precision(@product_variant.price),
             required: true,
             wrapper_html: { class: 'price-input-group' } %>
             <%= simple_fields_for :variant_values do |p| %>
               <% @product.product_options.each do |po| %>
                 <%= p.input po.id,
-                label: po.name %>
+                label: po.name,
+                input_html: { value: @product_variant.variant_values.find_by(product_option_id: po.id)&.name } %>
               <% end %>
             <% end %>
             <%= f.input :weight,
