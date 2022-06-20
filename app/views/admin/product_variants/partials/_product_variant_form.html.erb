@@ -18,6 +18,9 @@
               label: 'Nom',
               required: true
             %>
+            <div>
+              <%= f.file_field :illustration %>
+            </div>
             <%= f.label 'Prix',
             required: true %>
             <%= f.input :price,

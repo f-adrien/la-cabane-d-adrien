@@ -1,11 +1,12 @@
 <% @product.product_variants.each do |variant| %>
   <li>
-    <span>Nom : <strong><%= variant.name %></strong></span>
-    <span class='ml-4'>Prix : <strong><%= number_to_currency(variant.price, locale: :fr) %></span>
+    <%= image_tag variant.illustration.variant(resize_and_pad: [100, 100]) %>
+    <span class='ml-4'>Nom : <strong><%= variant.name %></strong></span>
+    <span class='ml-4'>Prix : <strong><%= number_to_currency(variant.price, locale: :fr) %></strong></span>
       <%= link_to edit_product_product_variant_path(variant, product_id: @product.id), method: :get, class: 'very-small-icons ml-4' do %>
         <%= svg 'icon_edit' %>
       <% end %>
-      <%= link_to product_product_variant_path(variant), class: 'very-small-icons ml-2', method: :delete,
+      <%= link_to product_product_variant_path(variant, product_id: @product.id), class: 'very-small-icons ml-2', method: :delete,
           data: { confirm: "Êtes-vous sûr de vouloir supprimer cet attribut ?", verify: variant.name, verify_text: "Veuillez saisir '#{variant.name}' pour confirmer", word_to_type: variant.name } do %>
         <%= svg 'icon_trash' %>
       <% end %>

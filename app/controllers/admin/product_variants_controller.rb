@@ -53,6 +53,6 @@ class Admin::ProductVariantsController < AdminController
   end
 
   def set_product_variant_params
-    params.require(:product_variant).permit(:name, :price, :weight, :height, :width, :depth, :sku, :is_main)
+    params.require(:product_variant).permit(:name, :illustration, :price, :weight, :height, :width, :depth, :sku, :is_main)
   end
 end
