@@ -17,7 +17,6 @@ class CreateMainStoreObjects < ActiveRecord::Migration[6.1]
       t.references :product, null: false, foreign_key: true
       t.string :name
       t.decimal :price, precision: 10, scale: 2, default: 0
-      t.string :sku, null: false
       t.decimal :weight, precision: 8, scale: 2, default: 0
       t.decimal :height, precision: 8, scale: 2, default: 0
       t.decimal :width, precision: 8, scale: 2, default: 0
@@ -25,7 +24,9 @@ class CreateMainStoreObjects < ActiveRecord::Migration[6.1]
       t.boolean :is_main, default: false
       t.decimal :cost_price, precision: 10, scale: 2, default: 0
       t.integer :position
-      t.boolean :published, default: false
+      t.boolean :available_for_pick_up, default: true
+      t.boolean :available_for_expedition, default: true
+      t.string :sku, null: false
 
       t.timestamps
     end
