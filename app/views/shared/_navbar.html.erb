@@ -3,26 +3,27 @@
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag 'logos/logo_cabane_adrien.png' %>
   <% end %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="navbar-center-block collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to 'La Cabane', '/', class: "nav-link"  %>
+      <li class="nav-item dropdown">
+        <%= link_to 'La Cabane', '/', class: "nav-link dropdown-toggle", id: 'cabaneDropdown', 'data-toggle': 'dropdown', 'aria-haspopup': true, 'aria-expanded': false  %>
+        <div class="dropdown-menu" aria-labelledby="cabaneDropdown">
+          <a class="dropdown-item" href="#">Réservation</a>
+          <a class="dropdown-item" href="#">Notre histoire</a>
+          <a class="dropdown-item" href="#">Notre outil de production</a>
+        </div>
       </li>
       <li class="nav-item dropdown">
         <%= link_to 'Nos produits', '/', class: "nav-link dropdown-toggle", id: 'productsDropdown', 'data-toggle': 'dropdown', 'aria-haspopup': true, 'aria-expanded': false  %>
         <div class="dropdown-menu" aria-labelledby="productsDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          
-          <a class="dropdown-item" href="#">Another action</a>
-          
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#">Livraison à domicile</a>
+          <a class="dropdown-item" href="#">Retrait à la cabane</a>
+          <a class="dropdown-item" href="#">Nos garanties</a>
         </div>
-      </li>   
+      </li>
       <li class="nav-item">
         <%= link_to 'Contact', '/', class: "nav-link"  %>
       </li>

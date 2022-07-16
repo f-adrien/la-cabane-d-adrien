@@ -10,6 +10,12 @@
       margin: revert;
     }
   }
+
+  .navbar-center-block {
+    @media (min-width: $breakpoint-md) {
+      margin-right: 110px;
+    }
+  }
 }
 
 .navbar-adrien .navbar-collapse {

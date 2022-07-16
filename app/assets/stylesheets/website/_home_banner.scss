@@ -19,4 +19,32 @@
   p {
     font-size: 20px;
   }
+
+  .home-banner-buttons {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    a:not(:first-child) {
+      margin-top: 30px;
+    }
+    @media (min-width: $breakpoint-md) {
+      margin-top: 50px;
+      flex-direction: row;
+      justify-content: space-between;
+
+      a:not(:first-child) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .btn {
+    width: 192px;
+    height: 40px;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
 }
