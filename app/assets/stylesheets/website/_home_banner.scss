@@ -1,0 +1,22 @@
+.home-banner {
+  height: 500px;
+  background-image: url('https://res.cloudinary.com/francois-adrien/image/upload/q_100/v1657970173/Bannie%CC%80re_Cabane_d_Adrien_fyb4g9.jpg');
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  h1 {
+    font-family: $fabfeltscript;
+    @media (min-width: $breakpoint-md) {
+      font-size: 80px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+  }
+}

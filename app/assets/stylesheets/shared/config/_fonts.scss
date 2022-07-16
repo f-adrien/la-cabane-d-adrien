@@ -14,3 +14,11 @@ $headers-font: 'Andada',Georgia,"Times New Roman",serif;
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+
+
+// To use a font file (.woff) uncomment following lines
+@font-face {
+  font-family: 'fabfeltscript';
+  src: url("fabfeltscript.bold.ttf");
+}
+$fabfeltscript: "fabfeltscript";
